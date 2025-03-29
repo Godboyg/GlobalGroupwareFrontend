@@ -18,7 +18,7 @@ function Login() {
       setEmail("");
       setPassword("");
       const data = { email , password };
-      const res = await axios.post("/api/login", data);
+      const res = await axios.post("https://reqres.in/api/login", data);
       const token = res.data.token;
       console.log("token",token);
       navigate("/users");

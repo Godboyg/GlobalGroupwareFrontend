@@ -20,14 +20,14 @@ function Users() {
   const data = { first_name , last_name , email};
 
   const Allusers = async() => {
-    const response = await axios.get("api/users?page1");
+    const response = await axios.get("https://reqres.in/api/users?page1");
     console.log(response.data.data)
     setUsers(response.data.data);
   }
 
   const handleDelete = async(id) => {
     setUsers(users.filter((user) => user.id !== id));
-    const res = await axios.delete(`/api/users/${id}`)
+    const res = await axios.delete(`https://reqres.in/api/users/${id}`)
     console.log(res);
   }
 
@@ -65,9 +65,9 @@ function Users() {
 
   const handleEdit = async()=>{
     setIsVisible(false)
-    const res = await axios.put(`/api/users/${id}` , data);
+    const res = await axios.put(`https://reqres.in/api/users/${id}` , data);
     console.log("edited",res);
-    const response = await axios.get("api/users?page1");
+    const response = await axios.get("https://reqres.in/api/users?page1");
     setUsers(response.data.data);
     console.log("new res",res);
   }
